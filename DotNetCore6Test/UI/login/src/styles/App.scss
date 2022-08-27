@@ -1,0 +1,40 @@
+html,
+body,
+#root,
+.app{
+    width: 100%;
+    height: 100%;
+    margin: 0px
+}
+
+.app {
+    background: url('background.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    .form-login {
+        max-width: 330px;
+        background: white;
+        padding: 20px;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        top: 50%;
+        border-radius: 15px;
+
+        .form-login-input {
+            margin-bottom: 10px;
+        }
+
+        .form-login-submit {
+            width: 100%;
+        }
+    }
+
+    .login-snackbar {
+        .MuiSnackbarContent-root {
+            background-color: darkred;
+        }
+    }
+}

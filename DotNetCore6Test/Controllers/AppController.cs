@@ -20,7 +20,7 @@ namespace DotNetCore6Test.Controllers
         {
             string appRoot = _env.ContentRootPath;
 
-            string appIndex = appRoot + "/UI/login-app/build/index.html";
+            string appIndex = appRoot + "/UI/login/build/index.html";
 
             string content = System.IO.File.ReadAllText(appIndex);
 

@@ -24,7 +24,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles(new StaticFileOptions
 {
     FileProvider = new PhysicalFileProvider(
-           Path.Combine(builder.Environment.ContentRootPath, "UI/login-app/build")),
+           Path.Combine(builder.Environment.ContentRootPath, "UI/login/build")),
     RequestPath = "/Login"
 });
 
