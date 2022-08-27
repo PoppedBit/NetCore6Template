@@ -1,0 +1,5 @@
+/.vs
+/DotNetCore6Test/bin
+/DotNetCore6Test/obj
+/DotNetCore6Test/UI/login-app/build
+/DotNetCore6Test/UI/login-app/node_modules
