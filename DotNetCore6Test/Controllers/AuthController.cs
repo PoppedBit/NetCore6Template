@@ -30,10 +30,8 @@ namespace DotNetCore6Test.Controllers
 
             if(user == null)
             {
-                return BadRequest(new { message = "Email or Password is incorrect" });
+                return Ok(new { message = "Email or Password is incorrect." });
             }
-
-            // 
 
             return Ok();
         }

@@ -1,7 +1,7 @@
 
-const baseUrl = process.env.REACT_APP_API_URL;
+export const baseUrl = process.env.REACT_APP_API_URL;
 
-export const postData = (endpoint, data) => {
+export const getPostConfig = (data) => {
     const postConfig = {
         method: 'POST',
         credentials: 'include',
@@ -10,8 +10,6 @@ export const postData = (endpoint, data) => {
         },
         body: JSON.stringify(data),
     };
-    fetch(
-        `${baseUrl}${endpoint}`,
-        postConfig,
-    );
+
+    return postConfig;
 }

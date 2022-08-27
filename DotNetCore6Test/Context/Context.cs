@@ -3,11 +3,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DotNetCore6Test.Context
 {
-    public class Context : DbContext
+    public class DataContext : DbContext
     {
         protected readonly IConfiguration Configuration;
 
-        public Context(IConfiguration configuration)
+        public DataContext(IConfiguration configuration)
         {
             Configuration = configuration;
         }

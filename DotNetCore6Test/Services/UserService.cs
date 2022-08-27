@@ -1,4 +1,5 @@
-﻿using DotNetCore6Test.Entities.Auth;
+﻿using DotNetCore6Test.Context;
+using DotNetCore6Test.Entities.Auth;
 using Microsoft.EntityFrameworkCore.Query.Internal;
 using System.Security.Cryptography;
 
@@ -12,9 +13,9 @@ namespace DotNetCore6Test.Services
     public class UserService: IUserService
     {
         public IWebHostEnvironment _env;
-        private Context.Context _context;
+        DataContext _context;
         
-        public UserService(IWebHostEnvironment env, Context.Context context)
+        public UserService(IWebHostEnvironment env, DataContext context)
         {
             _env = env;
             _context = context;

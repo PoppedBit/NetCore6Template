@@ -31,7 +31,15 @@ export const Login = () => {
             return;
         }
 
-        requestLogin(email, password);
+        requestLogin(email, password)
+            .then(response => response.json())
+            .then(response => {
+                if (response.message) {
+                    setErrorMessage(response.message);
+                } else {
+
+                }
+            });
     }
 
     return <>
