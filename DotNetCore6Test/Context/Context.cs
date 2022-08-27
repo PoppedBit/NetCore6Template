@@ -5,9 +5,18 @@ namespace DotNetCore6Test.Context
 {
     public class Context : DbContext
     {
-        public Context(DbContextOptions<Context> options) : base(options)
-        {
+        protected readonly IConfiguration Configuration;
 
+        public Context(IConfiguration configuration)
+        {
+            Configuration = configuration;
+        }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder options)
+        {
+            // connect to mysql with connection string from app settings
+            string connectionString = Configuration.GetConnectionString("DefaultConnection");
+            options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
         }
 
         // Auth

@@ -1,14 +1,18 @@
 using DotNetCore6Test.Context;
 using DotNetCore6Test.Services;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.FileProviders;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddDbContext<Context>();
+
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+
 builder.Services.AddScoped<IUserService, UserService>();
 
 var app = builder.Build();
@@ -32,6 +36,12 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+// migrate any database changes on startup (includes initial db creation)
+using (var scope = app.Services.CreateScope())
+{
+    var dataContext = scope.ServiceProvider.GetRequiredService<Context>();
+    dataContext.Database.Migrate();
+}
 
 app.Run();
 

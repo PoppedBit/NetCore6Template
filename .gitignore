@@ -3,3 +3,4 @@
 /DotNetCore6Test/obj
 /DotNetCore6Test/UI/login/build
 /DotNetCore6Test/UI/login/node_modules
+/DotNetCore6Test/Uploads/*
