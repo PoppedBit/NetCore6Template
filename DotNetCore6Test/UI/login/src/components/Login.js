@@ -7,7 +7,7 @@ import {
     TextField,
 } from '@mui/material';
 
-import { requestLogin } from '../api/login';
+import { requestLogin } from 'api/login';
 
 const snackbarAnchor = {
     vertical: 'bottom',
