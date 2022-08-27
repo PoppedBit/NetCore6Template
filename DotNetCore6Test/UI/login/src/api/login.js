@@ -1,15 +1,12 @@
-import { baseUrl, getPostConfig } from './index'
+import { baseUrl, getPostConfig } from './index';
 
 export const requestLogin = async (email, password) => {
-    const data = {
-        email,
-        password,
-    };
+  const data = {
+    email,
+    password
+  };
 
-    const postConfig = getPostConfig(data);
+  const postConfig = getPostConfig(data);
 
-    return fetch(
-        `${baseUrl}/Auth/Login`,
-        postConfig,
-    );
-}
+  return fetch(`${baseUrl}/Auth/Login`, postConfig);
+};
