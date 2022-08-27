@@ -19,6 +19,8 @@ namespace DotNetCore6Test.Entities.Auth
 
         public byte[]? PasswordSalt { get; set; } = null;
 
+        public bool IsAdmin { get; set; } = false;
+
         public string GetFullName()
         {
             return FirstName + LastName;
