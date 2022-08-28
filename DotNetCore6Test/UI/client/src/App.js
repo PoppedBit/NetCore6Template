@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Routes, Route, Link } from "react-router-dom";
 
 import {
   Button,
@@ -37,14 +38,16 @@ function App() {
       >
         <Grid container spacing={2}>
           <Grid item xs={2}>
-            Site Logo
+            <Link to="/">
+              Site Name    
+            </Link>
           </Grid>
           <Grid item xs={6}>
             <TextField
               className='header-search-input'
               variant="outlined" 
               InputProps={{
-                placeholder:"Search",
+                placeholder:"This Search Is Not Functional",
                 startAdornment: (
                   <InputAdornment position="start">
                     <SearchIcon />
@@ -67,29 +70,38 @@ function App() {
               }}
             >
             <MenuItem>
-              <ListItemIcon>
-                <AccountCircleIcon fontSize="small" />
-              </ListItemIcon>
-              <ListItemText>My Profile</ListItemText>
+              <Link to="/user">
+                <ListItemIcon>
+                  <AccountCircleIcon fontSize="small" />
+                </ListItemIcon>
+                <ListItemText>My Profile</ListItemText>
+              </Link>
             </MenuItem>
             <MenuItem>
-              <ListItemIcon>
-                <SettingsIcon fontSize="small" />
-              </ListItemIcon>
-              <ListItemText>Setting</ListItemText>
+              <Link to="/settings">
+                <ListItemIcon>
+                  <SettingsIcon fontSize="small" />
+                </ListItemIcon>
+                <ListItemText>Setting</ListItemText>
+              </Link>
             </MenuItem>
             <MenuItem>
-              <ListItemIcon>
-                <LogoutIcon fontSize="small" />
-              </ListItemIcon>
-              <ListItemText>Logout</ListItemText>
+              <Link to="/logout">
+                <ListItemIcon>
+                  <LogoutIcon fontSize="small" />
+                </ListItemIcon>
+                <ListItemText>Logout</ListItemText>
+              </Link>
             </MenuItem>
           </Menu>
           </Grid>
         </Grid>
       </Toolbar>
       <main>
-        Main Content Container
+      <Routes>
+        <Route path="/" element={<div>Home Test</div>} />
+        <Route path="user" element={<div>User Test</div>} />
+      </Routes>
       </main>
     </div>
   </>;
