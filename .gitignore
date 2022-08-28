@@ -1,6 +1,8 @@
 /.vs
 /DotNetCore6Test/bin
 /DotNetCore6Test/obj
+/DotNetCore6Test/UI/client/build
+/DotNetCore6Test/UI/client/node_modules
 /DotNetCore6Test/UI/login/build
 /DotNetCore6Test/UI/login/node_modules
 /DotNetCore6Test/Uploads/*
