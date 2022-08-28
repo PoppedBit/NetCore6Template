@@ -29,16 +29,18 @@ namespace DotNetCore6Test.Context
 
             UserService.CreatePasswordHash("test", out hash, out salt);
 
-            modelBuilder.Entity<User>().HasData(new User
-            {
-                Id = Guid.NewGuid(),
-                FirstName = "First",
-                LastName = "Last",
-                Email = "test@test.com",
-                IsAdmin = true,
-                PasswordHash = hash,
-                PasswordSalt = salt
-            });
+            modelBuilder.Entity<User>().HasData(
+                new User
+                {
+                    Id = Guid.NewGuid(),
+                    FirstName = "First",
+                    LastName = "Last",
+                    Email = "test@test.com",
+                    IsAdmin = true,
+                    PasswordHash = hash,
+                    PasswordSalt = salt
+                }
+            );
         }
 
         // Auth
