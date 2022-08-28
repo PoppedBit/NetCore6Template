@@ -2,10 +2,20 @@ using DotNetCore6Test.Context;
 using DotNetCore6Test.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.FileProviders;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(options => 
+    {
+        options.Cookie.Name = builder.Configuration["AppSettings:Cookie"];
+        // 8 Hours expiration time
+        options.ExpireTimeSpan = new TimeSpan(8, 0, 0);
+    }
+);
+
 builder.Services.AddDbContext<DataContext>();
 
 builder.Services.AddControllers();
@@ -26,6 +36,7 @@ app.UseStaticFiles(new StaticFileOptions
     RequestPath = "/Login"
 });
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
