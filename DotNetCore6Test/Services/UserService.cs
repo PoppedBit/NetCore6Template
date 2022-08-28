@@ -72,5 +72,11 @@ namespace DotNetCore6Test.Services
             return true;
         }
 
+        public static void CreatePasswordHash(string password, out byte[] hash, out byte[] salt)
+        {
+            HMACSHA512 hmac = new HMACSHA512();
+            hash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
+            salt = hmac.Key;
+        }
     }
 }

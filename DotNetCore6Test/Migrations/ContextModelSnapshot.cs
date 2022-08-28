@@ -52,7 +52,7 @@ namespace DotNetCore6Test.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Users");
+                    b.ToTable("Users", (string)null);
                 });
 
             modelBuilder.Entity("DotNetCore6Test.Entities.Auth.UserLogin", b =>
@@ -69,7 +69,7 @@ namespace DotNetCore6Test.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("UserLogins");
+                    b.ToTable("UserLogins", (string)null);
                 });
 #pragma warning restore 612, 618
         }
