@@ -2,9 +2,11 @@
 using DotNetCore6Test.Entities.Auth;
 using DotNetCore6Test.Models.Auth;
 using DotNetCore6Test.Services;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace DotNetCore6Test.Controllers
 {
@@ -33,11 +35,25 @@ namespace DotNetCore6Test.Controllers
                 return Ok(new { message = "Email or Password is incorrect." });
             }
 
-            return Ok();
+            // Claims
+            List<Claim> claims = new List<Claim>
+            {
+                new Claim(ClaimTypes.Name, user.Id.ToString())
+            };
+
+            ClaimsIdentity identity = new ClaimsIdentity(claims);
+
+            ClaimsPrincipal principal = new ClaimsPrincipal(new[] {identity});
+
+            HttpContext.SignInAsync(principal);
+
+            return Ok(new { userId = user.Id});
         }
 
+        [HttpPost("Login")]
         public IActionResult Logout()
         {
+            HttpContext.SignOutAsync();
             return Ok();
         }
     }

@@ -32,7 +32,7 @@ namespace DotNetCore6Test.Services
             // Get User
             User user = _context.Users.SingleOrDefault(u => u.Email == email);
 
-            // If no user has email, return
+            // If no user has that email, return
             if (user == null)
             {
                 return null;
@@ -43,6 +43,10 @@ namespace DotNetCore6Test.Services
             {
                 return null;
             }
+
+            UserLogin userLogin = new UserLogin { UserId = user.Id, LoginTimestamp = DateTime.UtcNow };
+            _context.Add(userLogin);
+            _context.SaveChanges();
 
             return user;
         }
