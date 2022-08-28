@@ -40,6 +40,14 @@ app.UseStaticFiles(new StaticFileOptions
            Path.Combine(builder.Environment.ContentRootPath, "UI/login/build")),
     RequestPath = "/Login"
 });
+// Routing for client app
+app.UseStaticFiles(new StaticFileOptions
+{
+    FileProvider = new PhysicalFileProvider(
+           Path.Combine(builder.Environment.ContentRootPath, "UI/client/build")),
+    RequestPath = "/Client"
+});
+
 
 app.UseAuthentication();
 app.UseAuthorization();
