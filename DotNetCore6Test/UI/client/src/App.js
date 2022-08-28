@@ -82,7 +82,7 @@ function App() {
                 <ListItemIcon>
                   <SettingsIcon fontSize="small" />
                 </ListItemIcon>
-                <ListItemText>Setting</ListItemText>
+                <ListItemText>Settings</ListItemText>
               </Link>
             </MenuItem>
             <MenuItem>
