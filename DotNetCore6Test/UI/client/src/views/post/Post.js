@@ -1,0 +1,15 @@
+import { useParams } from 'react-router-dom';
+
+import { ExistingPost } from './ExistingPost';
+import { NewPost } from './NewPost';
+
+export const Post = (props) => {
+  const params = useParams();
+  const { id } = params;
+
+  if (id) {
+    return <ExistingPost id={id} />;
+  } else {
+    return <NewPost />;
+  }
+};
