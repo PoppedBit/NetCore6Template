@@ -3,14 +3,14 @@ import { useState, useEffect } from 'react';
 import { requestPost } from 'api/forum-api';
 
 export const ExistingPost = (props) => {
-  const { id } = props;
+  const { id, commentId } = props;
 
   const [post, setPost] = useState(null);
   const [comments, setComments] = useState([]);
 
   useEffect(() => {
     if(!post){
-      requestPost(id)
+      requestPost(id, commentId)
         .then((response) => response.json())
         .then((response) => {
           const { post, comments } = response;

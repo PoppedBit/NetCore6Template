@@ -103,6 +103,7 @@ function App() {
             <Route path="/user" element={<div>User Test</div>} />
             <Route path="/post" element={<Post />} />
             <Route path="/post/:id" element={<Post />} />
+            <Route path="/post/:id/:commentId" element={<Post />} />
           </Routes>
         </main>
       </div>
