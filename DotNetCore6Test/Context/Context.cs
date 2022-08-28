@@ -30,16 +30,31 @@ namespace DotNetCore6Test.Context
 
             UserService.CreatePasswordHash("test", out hash, out salt);
 
+            Guid UserId = Guid.NewGuid();
+
             modelBuilder.Entity<User>().HasData(
                 new User
                 {
-                    Id = Guid.NewGuid(),
+                    Id = UserId,
                     FirstName = "First",
                     LastName = "Last",
                     Email = "test@test.com",
                     IsAdmin = true,
                     PasswordHash = hash,
                     PasswordSalt = salt
+                }
+            );
+
+            Guid PostId = Guid.NewGuid();
+            modelBuilder.Entity<Post>().HasData(
+                new Post
+                {
+                    Id = PostId,
+                    AuthorId = UserId,
+                    CreatedTimestamp = DateTime.UtcNow,
+                    Title = "This is a test title",
+                    Body = "This is a test body",
+                    Link = "https://www.twitch.tv/"
                 }
             );
         }
