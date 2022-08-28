@@ -13,10 +13,15 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
         options.Cookie.Name = builder.Configuration["AppSettings:Cookie"];
         // 8 Hours expiration time
         options.ExpireTimeSpan = new TimeSpan(8, 0, 0);
+        // Reissues a cookie if a request is handled when more than halfway through expiration window
+        options.SlidingExpiration = true;
     }
 );
 
 builder.Services.AddDbContext<DataContext>();
+
+//HTTP Context Accessor
+builder.Services.AddHttpContextAccessor();
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 import { Button, Snackbar, TextField } from '@mui/material';
 
@@ -31,6 +31,7 @@ export const Login = () => {
         if (response.message) {
           setErrorMessage(response.message);
         } else {
+          window.location.reload();
         }
       });
   };

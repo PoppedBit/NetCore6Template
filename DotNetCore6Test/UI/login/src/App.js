@@ -1,3 +1,4 @@
+import React from 'react';
 import './styles/App.scss';
 
 import { Login } from './components';

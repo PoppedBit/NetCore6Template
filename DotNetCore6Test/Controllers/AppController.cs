@@ -19,8 +19,9 @@ namespace DotNetCore6Test.Controllers
         public ContentResult Index()
         {
             string appRoot = _env.ContentRootPath;
+            bool isAuthenticated = HttpContext.User.Identity.IsAuthenticated;
 
-            string appIndex = appRoot + "/UI/login/build/index.html";
+            string appIndex = appRoot + "/UI/"+(isAuthenticated ? "client" : "login")+"/build/index.html";
 
             string content = System.IO.File.ReadAllText(appIndex);
 

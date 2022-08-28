@@ -41,7 +41,7 @@ namespace DotNetCore6Test.Controllers
                 new Claim(ClaimTypes.Name, user.Id.ToString())
             };
 
-            ClaimsIdentity identity = new ClaimsIdentity(claims);
+            ClaimsIdentity identity = new ClaimsIdentity(claims, "MyClaims");
 
             ClaimsPrincipal principal = new ClaimsPrincipal(new[] {identity});
 
@@ -50,7 +50,7 @@ namespace DotNetCore6Test.Controllers
             return Ok(new { userId = user.Id});
         }
 
-        [HttpPost("Login")]
+        [HttpPost("Logout")]
         public IActionResult Logout()
         {
             HttpContext.SignOutAsync();
