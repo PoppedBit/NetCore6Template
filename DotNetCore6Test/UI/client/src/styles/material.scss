@@ -1,0 +1,15 @@
+
+.MuiMenu-paper{
+    ul{
+        li{
+            a{
+                text-decoration: none;
+                color: inherit;
+
+                & > div{
+                    display: inline-block;
+                }
+            }
+        }
+    }
+}
