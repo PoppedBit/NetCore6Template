@@ -1,4 +1,5 @@
 ﻿using DotNetCore6Test.Entities.Auth;
+using DotNetCore6Test.Entities.Forum;
 using DotNetCore6Test.Services;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection.Metadata;
@@ -47,5 +48,9 @@ namespace DotNetCore6Test.Context
         public DbSet<User> Users { get; set; }
 
         public DbSet<UserLogin> UserLogins { get; set; }
+
+        public DbSet<Post> Posts { get; set; }
+        public DbSet<Comment> Comment { get; set; }
+
     }
 }
