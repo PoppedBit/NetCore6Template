@@ -28,6 +28,7 @@ builder.Services.AddEndpointsApiExplorer();
 
 // My Services
 builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IForumService, ForumService>();
 
 var app = builder.Build();
 

@@ -65,7 +65,7 @@ namespace DotNetCore6Test.Context
         public DbSet<UserLogin> UserLogins { get; set; }
 
         public DbSet<Post> Posts { get; set; }
-        public DbSet<Comment> Comment { get; set; }
+        public DbSet<Comment> Comments { get; set; }
 
     }
 }
