@@ -22,3 +22,7 @@ cd DotNetCore6Test/UI/client
 npm install
 npm run build
 ```
+
+## Development
+
+### Migrations
