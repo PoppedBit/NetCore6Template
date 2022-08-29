@@ -8,10 +8,7 @@ export const Post = (props) => {
   const { id, commentId } = params;
 
   if (id) {
-    return <ExistingPost 
-      id={id} 
-      commentId={commentId} 
-    />;
+    return <ExistingPost id={id} commentId={commentId} />;
   } else {
     return <NewPost />;
   }

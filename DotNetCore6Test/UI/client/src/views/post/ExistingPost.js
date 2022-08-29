@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import { requestPost } from 'api/forum-api';
 import { getTimeFromNow } from 'shared/utils';
 
+import { PostHeader } from './components/PostHeader';
+
 import './index.scss';
 
 export const ExistingPost = (props) => {
@@ -13,7 +15,7 @@ export const ExistingPost = (props) => {
   const [comments, setComments] = useState([]);
 
   useEffect(() => {
-    if(!post){
+    if (!post) {
       requestPost(id, commentId)
         .then((response) => response.json())
         .then((response) => {
@@ -24,19 +26,16 @@ export const ExistingPost = (props) => {
     }
   }, [id, post]);
 
-  if(!post){
+  if (!post) {
     return <div>Loading</div>;
   }
 
-  const { title, link, body, createdTimestamp, authorId } = post;
+  const { body } = post;
 
-  return <>
-    <div className='post-container'>
-      <div className='post-meta-data'>
-        <Link to={`/user/${authorId}`}>{authorId}</Link>
-      </div>
-      <div className='post-title'>{title}</div>
-      <div className='post-body'>{body}</div>
-    </div>
-  </>;
+  return (
+    <>
+      <PostHeader post={post} />
+      <div className="post-body">{body}</div>
+    </>
+  );
 };

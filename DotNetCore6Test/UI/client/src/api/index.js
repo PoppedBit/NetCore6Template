@@ -7,9 +7,9 @@ export const getBaseRequestConfig = () => {
     credentials: 'include',
     headers: {
       Accept: 'application/json',
-      'Content-Type': 'application/json',
-    },
-  }
+      'Content-Type': 'application/json'
+    }
+  };
 
   return config;
 };

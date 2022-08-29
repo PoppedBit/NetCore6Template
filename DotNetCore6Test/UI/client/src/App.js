@@ -21,7 +21,7 @@ import SettingsIcon from '@mui/icons-material/Settings';
 
 import 'styles/App.scss';
 
-import { Post } from 'views/post';
+import { Post, PostList } from 'views/post';
 
 function App() {
   const [menuAnchor, setMenuAnchor] = useState(null);
@@ -56,11 +56,7 @@ function App() {
               />
             </Grid>
             <Grid item xs={4}>
-              <Button
-                variant='contained'
-                startIcon={<AddIcon />} 
-                href="/post"
-              >
+              <Button variant="contained" startIcon={<AddIcon />} href="/post">
                 New Post
               </Button>
               <Button onClick={handleUserClick}>Account</Button>
@@ -103,8 +99,9 @@ function App() {
         </Toolbar>
         <main>
           <Routes>
-            <Route path="/" element={<div>Home Test</div>} />
+            <Route path="/" element={<PostList />} />
             <Route path="/user" element={<div>User Test</div>} />
+            <Route path="/user/:id" element={<div>Specific User Test</div>} />
             <Route path="/post" element={<Post />} />
             <Route path="/post/:id" element={<Post />} />
             <Route path="/post/:id/:commentId" element={<Post />} />
