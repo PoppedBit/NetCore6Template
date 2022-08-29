@@ -2,9 +2,11 @@
 using DotNetCore6Test.Entities.Forum;
 using DotNetCore6Test.Migrations;
 using DotNetCore6Test.Models.Auth;
+using DotNetCore6Test.Models.Forum;
 using DotNetCore6Test.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Hosting;
 
 namespace DotNetCore6Test.Controllers
 {
@@ -48,6 +50,18 @@ namespace DotNetCore6Test.Controllers
                Post = post,
                Comments = comments
             });
+        }
+
+        [HttpPost("Post")]
+        public IActionResult CreatePost([FromBody] CreatePostModel formValues)
+        {
+            Post post = _forumService.CreatePost(formValues);
+
+            return Ok(new
+            {
+                PostId = post.Id,
+            });
+
         }
 
         [HttpPost("Posts")]

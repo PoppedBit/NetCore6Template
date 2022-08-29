@@ -56,7 +56,11 @@ function App() {
               />
             </Grid>
             <Grid item xs={4}>
-              <Button startIcon={<AddIcon />} href="/post">
+              <Button
+                variant='contained'
+                startIcon={<AddIcon />} 
+                href="/post"
+              >
                 New Post
               </Button>
               <Button onClick={handleUserClick}>Account</Button>

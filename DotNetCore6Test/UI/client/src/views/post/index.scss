@@ -1,7 +1,7 @@
 
 .post-container{
     .post-meta-data{
-        
+
     }
 
     .post-title{
@@ -10,5 +10,12 @@
 
     .post-body{
 
+    }
+}
+
+.new-post-form{
+    .MuiTextField-root{
+        display: block;
+        margin-bottom: 25px;
     }
 }
