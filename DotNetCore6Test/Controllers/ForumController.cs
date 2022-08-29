@@ -50,7 +50,7 @@ namespace DotNetCore6Test.Controllers
             });
         }
 
-        [HttpGet("Posts")]
+        [HttpPost("Posts")]
         public IActionResult GetPosts()
         {
             //Get the Post
