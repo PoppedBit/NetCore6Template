@@ -50,5 +50,17 @@ namespace DotNetCore6Test.Controllers
             });
         }
 
+        [HttpGet("Posts")]
+        public IActionResult GetPosts()
+        {
+            //Get the Post
+            List<Post> posts = _forumService.GetPosts();
+
+            return Ok(new
+            {
+                Posts = posts,
+            });
+        }
+
     }
 }

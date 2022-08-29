@@ -9,6 +9,7 @@ namespace DotNetCore6Test.Services
         public Post? GetPost(Guid PostId);
         public List<Comment> GetCommentsByPostId(Guid PostId);
         public List<Comment> GetCommentsByParentCommentId(Guid CommentId);
+        public List<Post> GetPosts();
     }
 
     public class ForumService : IForumService
@@ -53,6 +54,11 @@ namespace DotNetCore6Test.Services
             }
 
             return comments;
+        }
+
+        public List<Post> GetPosts()
+        {
+            return _context.Posts.OrderBy(p => p.CreatedTimestamp).ToList();
         }
     }
 }
